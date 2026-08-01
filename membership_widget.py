@@ -1,12 +1,3 @@
-"""
-membership_widget.py
-
-Embeds matplotlib in the PyQt window to visualize the fuzzy controller's
-membership functions and where the current crisp error / delta-error
-values fall on them -- this is the piece that makes the fuzzy logic
-"visible" rather than a black box.
-"""
-
 import numpy as np
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure

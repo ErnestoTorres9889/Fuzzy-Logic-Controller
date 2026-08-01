@@ -1,10 +1,3 @@
-"""
-gauge_widget.py
-
-A hand-drawn analog gauge (QPainter, no external image assets) used for
-the pressure and pump-speed dials, styled like an industrial panel meter.
-"""
-
 import math
 from PyQt5.QtCore import Qt, QRectF, QPointF
 from PyQt5.QtGui import QPainter, QColor, QPen, QFont, QConicalGradient
@@ -128,7 +121,6 @@ class AnalogGauge(QWidget):
 
         p.setPen(Qt.NoPen)
         p.setBrush(QColor(230, 80, 70))
-        # simple needle as a thin triangle
         back_angle1 = angle_rad + math.radians(90)
         back_angle2 = angle_rad - math.radians(90)
         base_w = 4

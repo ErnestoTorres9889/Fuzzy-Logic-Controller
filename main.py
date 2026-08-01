@@ -35,8 +35,6 @@ class MainWindow(QMainWindow):
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self._tick)
-
-    # ------------------------------------------------------------------ UI
     def _build_ui(self):
         central = QWidget()
         self.setCentralWidget(central)
@@ -59,7 +57,7 @@ class MainWindow(QMainWindow):
         frame = QFrame()
         frame.setObjectName("headerFrame")
         layout = QHBoxLayout(frame)
-        title = QLabel("BOOSTER PUMP STATION \u2014 FUZZY LOGIC CONTROL")
+        title = QLabel("BOOSTER PUMP SUPPLY \u2014 SUGENO MACHINE CONTROLLER")
         title.setFont(QFont("Arial", 15, QFont.Bold))
         title.setStyleSheet(f"color: {ACCENT};")
         subtitle = QLabel("Commercial building water service  \u2022  Sugeno FLC (error + \u0394error, 3\u00d73 rule base)")
@@ -108,7 +106,6 @@ class MainWindow(QMainWindow):
         box = QGroupBox("Controls")
         layout = QVBoxLayout(box)
 
-        # Setpoint
         layout.addWidget(QLabel("Pressure Setpoint (psi)"))
         self.setpoint_spin = QDoubleSpinBox()
         self.setpoint_spin.setRange(10.0, 90.0)
@@ -116,7 +113,6 @@ class MainWindow(QMainWindow):
         self.setpoint_spin.valueChanged.connect(self._on_setpoint_changed)
         layout.addWidget(self.setpoint_spin)
 
-        # Demand disturbance
         layout.addWidget(QLabel("Building Demand (fixture usage)"))
         self.demand_slider = QSlider(Qt.Horizontal)
         self.demand_slider.setRange(0, 100)
