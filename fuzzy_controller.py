@@ -1,37 +1,3 @@
-"""
-fuzzy_controller.py
-
-A realistic 2-input Fuzzy Logic Controller for a commercial building
-water-pressure booster pump.
-
-Inputs:
-    error       (setpoint - current_pressure)          [psi]
-    delta_error (rate of change of error)               [psi/s]
-
-Output:
-    pump_speed_adjustment                                [% VFD trim, -50..+50]
-
-This is a Sugeno-style (zero-order) fuzzy system: each rule's consequent
-is a crisp singleton, and the output is the firing-strength-weighted
-average of those singletons. This is the same style of inference widely
-used in embedded/industrial fuzzy controllers because it's cheap to
-compute and easy to tune.
-
-Membership sets (each triangular, "N"=Negative, "Z"=Zero, "P"=Positive,
-with B=Big / S=Small on the output side):
-
-    error, delta_error:  N, Z, P            (3 sets each)
-    output:               NB, NS, Z, PS, PB  (5 singleton levels)
-
-Rule base (classic 3x3 FLC table):
-
-            delta_error
-             N     Z     P
-    error N  NB    NB    NS
-          Z  NS    Z     PS
-          P  PS    PB    PB
-"""
-
 from dataclasses import dataclass, field
 
 
